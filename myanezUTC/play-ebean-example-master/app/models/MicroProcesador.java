@@ -1,30 +1,62 @@
 package models;
 
-import play.*;
+import java.util.*;
 
 import javax.persistence.*;
 
-@Entity
-public class MicroProcesador {
-	public String id;
-	public String nombre;
-	public String num_transistores;
-	public String memoria;
-	public String descripcion;
-	public int valor1;
-	public int valor2;
+import com.avaje.ebean.Model;
 
-	
-	public MicroProcesador( String id, String nombre,String num_transistores,String memoria, String descripcion, int valor1, int valor2) {
-		super();
-	
-		this.id = id;
-		this.nombre =  nombre;
-		this.num_transistores = num_transistores;
-		this.memoria =memoria;
-		this.descripcion=descripcion;
-		this.valor1 = valor1;
-		this.valor2 = valor2;
-	
-	}
+import play.data.format.*;
+import play.data.validation.*;
+
+import com.avaje.ebean.*;
+
+/**
+ * Computer entity managed by Ebean
+ */
+@Entity 
+public class MicroProcesador extends Model {
+
+    private static final long serialVersionUID = 1L;
+    
+    @Id
+    public Long id;
+
+    @Constraints.Required
+    public String name;
+    
+    @Constraints.Required
+    public String valor1;
+    
+    @Constraints.Required
+    public String valor2;
+
+    
+    @ManyToOne
+    public Company company;
+    
+    /**
+     * Generic query helper for entity Computer with id Long
+     */
+    public static Find<Long,MicroProcesador> find = new Find<Long,MicroProcesador>(){};
+    
+    /**
+     * Return a paged list of computer
+     *
+     * @param page Page to display
+     * @param pageSize Number of computers per page
+     * @param sortBy Computer property used for sorting
+     * @param order Sort order (either or asc or desc)
+     * @param filter Filter applied on the name column
+     */
+    public static PagedList<MicroProcesador> page(int page, int pageSize, String sortBy, String order, String filter) {
+        return
+            find.where()
+                .ilike("name", "%" + filter + "%")
+                .orderBy(sortBy + " " + order)
+                .fetch("company")
+                .findPagedList(page, pageSize);
+    }
+    
 }
+
