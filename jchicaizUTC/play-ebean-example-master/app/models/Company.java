@@ -6,8 +6,6 @@ import javax.persistence.*;
 import play.db.ebean.*;
 import play.data.validation.*;
 
-
-
 /**
  * Company entity managed by Ebean
  */
