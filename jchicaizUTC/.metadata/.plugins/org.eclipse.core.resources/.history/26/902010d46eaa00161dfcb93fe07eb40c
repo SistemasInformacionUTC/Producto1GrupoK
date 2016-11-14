@@ -1,0 +1,32 @@
+package models;
+
+import java.util.Date;
+
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import play.data.format.Formats;
+import play.data.validation.Constraints;
+
+public class Microprocesador {
+
+	 private static final long serialVersionUID = 1L;
+
+		@Id
+	    public Long id;
+	    
+	    @Constraints.Required
+	    public String name;
+	    
+	    @Formats.DateTime(pattern="yyyy-MM-dd")
+	    public Date introduced;
+	    
+	    @Formats.DateTime(pattern="yyyy-MM-dd")
+	    public Date discontinued;
+	    
+	    @ManyToOne
+	    public Company company;
+
+	
+	
+}
