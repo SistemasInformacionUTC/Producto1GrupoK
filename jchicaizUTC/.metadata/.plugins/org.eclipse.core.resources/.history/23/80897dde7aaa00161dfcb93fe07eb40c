@@ -106,14 +106,7 @@
                             }
                         </td>
                    
-                    <td>
-                            @if(computer.company == null) {
-                                <em>-</em>
-                            } else {
-                                @computer.company.name
-                            }
-                        </td>
-                   
+                    
                     
                     </tr>
                 }
