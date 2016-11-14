@@ -27,16 +27,15 @@ public class Microprocesador {
 	    @Formats.DateTime(pattern="yyyy-MM-dd")
 	    public Date discontinued;
 	    
-	    
-	    @ManyToOne
-	    public Company company;
-	   
 	    @Constraints.Required
 	    public int numero;
 	    
 	    @Constraints.Required
 	    public int peso;
-	   
+	    
+	    @ManyToOne
+	    public Company company;
+	    
 	    @ManyToOne
 	    public Computer computer;
 	    

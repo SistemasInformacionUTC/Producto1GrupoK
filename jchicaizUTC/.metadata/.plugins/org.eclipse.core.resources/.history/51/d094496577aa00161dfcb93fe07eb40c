@@ -71,10 +71,8 @@
                     @header("introduced", "Introduced")
                     @header("discontinued", "Discontinued")
                     @header("company.name", "Company")
-                
-                @header("Microprocesador.numero", "numero")
-                    @header("Microprocesador.peso", "peso")
-                  @header("calculo", "calculo")
+                @header("number", "Numero")
+                    @header("peso.name", "Peso")
                 
                 
                 </tr>
@@ -105,14 +103,16 @@
                                 @computer.company.name
                             }
                         </td>
-                   
-                   <td>
-                            @if(computer.company == null) {
+                        
+                         <td>
+                            @if(computer.computer == null) {
                                 <em>-</em>
                             } else {
-                                @computer.company.name
+                                @computer.computer.numero
                             }
                         </td>
+                    
+                    
                     
                     
                     </tr>

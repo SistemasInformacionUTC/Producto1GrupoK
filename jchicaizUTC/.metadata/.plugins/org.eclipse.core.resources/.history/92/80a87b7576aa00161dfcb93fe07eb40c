@@ -88,8 +88,8 @@ public class HomeController  extends Controller {
                 savedComputer.discontinued = newComputerData.discontinued;
                 savedComputer.introduced = newComputerData.introduced;
                 savedComputer.name = newComputerData.name;
-                //savedComputer.numero = newComputerData.numero;
-                //savedComputer.peso = newComputerData.peso;
+                savedComputer.numero = newComputerData.numero;
+                savedComputer.peso = newComputerData.peso;
 
                 
 
